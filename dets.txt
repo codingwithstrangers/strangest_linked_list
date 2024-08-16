@@ -1,0 +1,4 @@
+We want to make alinked list that is more dynamic for fun
+-every new node will point it to the front of the tail
+-every removed node will move the head to the tail
+-once 5 nodes are in the list we will reverse the linked list (for ever noded added after as well)
