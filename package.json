@@ -1,0 +1,24 @@
+{
+  "name": "strangest_linked_list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingwithstrangers/strangest_linked_list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codingwithstrangers/strangest_linked_list/issues"
+  },
+  "homepage": "https://github.com/codingwithstrangers/strangest_linked_list#readme",
+  "devDependencies": {
+    "mocha": "^10.7.3"
+  }
+}
