@@ -1,5 +1,7 @@
 import { Node } from "./node.mjs";  // Make sure this path is correct based on your file structure
 
+
+
 export class Linkedlist {
   constructor() {
     this.head = null; // Initially, head is null
@@ -34,5 +36,7 @@ export class Linkedlist {
       this.tail = newNode;
     }
     this.size++;
+
+    console.log(node_count)
   }
 }

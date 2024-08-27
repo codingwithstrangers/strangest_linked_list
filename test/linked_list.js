@@ -1,7 +1,7 @@
 /*
 We want to make alinked list that is more dynamic for fun
 -every new node will point it to the front of the tail
--every removed node will move the head to the tail
+-every removed node will move the head to the tail and tail to the head 
 -once 5 nodes are in the list we will reverse the linked list (for ever noded added after as well)
 */
 import { Linkedlist } from "../linkedlist.mjs";
@@ -48,18 +48,37 @@ describe("Linkedlist", function () {
 
     });
 
-    // describe("findthetail()", function () {
-    //   it("look in a linked list and find the first node also know as the head", function () {
-    //     // given: a new empty linkelist
-    //     const new_linkedlist = new Linkedlist();
-    //     // when calling gethead() it will find the head node
-    //     const head_node = new_linkedlist.gethead();
-    //     // the head node cant be the tail test for this 
-    //     assert.notStrictEqual(head_node,null)
-        
-    //   });
+    describe("nodesbefore5()", function () {
+      it("look for in the linked list and if the linked list has a total of less than 5 nodes excluding the head and tail", function () {
+        // making new link
+        const link = new Linkedlist();
 
-    // });
+        link.add(1, "first node"); //this is the head
+        link.add(2, "second node"); //this is the node
+        link.add(3, "third node");
+        link.add(4, "fourth node");
+        link.add(5, "fifth node");
+        link.add(6, "sixth node");
+        link.add(7, "seventh node"); //this is the tail
+
+        // then the list should reverse everything once more than 5
+        // when find the head and the tail 
+        const head_node = link.gethead();
+        const tail_node = link.gettail();
+    
+
+        // then the list needs to assert the place are reversed
+        assert.strictEqual(head)
+        
+      });
+
+        
+        // the head node cant be the tail test for this 
+        assert.notStrictEqual(head_node,null)
+        
+      });
+
+    });
     // describe("Actualnumber()", function () {
     //     it("should return # if linked list is not empty", function () {
     //       // given: a new linkelist
@@ -72,4 +91,3 @@ describe("Linkedlist", function () {
     //     });
     // });
     });
-});
