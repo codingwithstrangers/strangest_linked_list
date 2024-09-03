@@ -1,42 +1,91 @@
-import { Node } from "./node.mjs";  // Make sure this path is correct based on your file structure
-
-
-
 export class Linkedlist {
   constructor() {
-    this.head = null; // Initially, head is null
-    this.tail = null; // Initially, tail is null
-    this.size = 0;    // Initially, size is 0
+    this.head = null;
+    this.tail = null;
+    this.node_count = 0; // Initialize node count
   }
 
-  // Method to get the head node
+  add(data) {
+    const newNode = { data, next: null };
+
+    if (this.head === null) {
+      // List is empty, so new node becomes head and tail
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      // Add the new node to the end of the list
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+
+    this.node_count++; // Increment node count
+
+    // Reverse the list if there are 5 or more nodes
+    if (this.node_count >= 5) {
+      this.reverse();
+    }
+  }
+
+  remove2ndnode(){
+    if(this.node_count < 3){
+      alert('Not enough node to remove , need atleast 3');
+  }
+    if (this.head && this.head.next){
+      const secondnode = this.head.next;
+      this.head.next = secondnode.next;
+      this.node_count--;
+    }
+  }
+  
+
+  remove() {
+    if (this.head === null) {
+      return null; // List is empty, nothing to remove
+    }
+
+    if (this.head === this.tail) {
+      // Only one element in the list
+      this.head = null;
+      this.tail = null;
+    } else {
+      // More than one element in the list
+      let current = this.head;
+      while (current.next !== this.tail) {
+        current = current.next;
+      }
+      current.next = null;
+      this.tail = current;
+    }
+
+    this.node_count--; // Decrement node count
+  }
+
+  reverse() {
+    let prev = null;
+    let current = this.head;
+    this.tail = this.head; // Update tail to the old head
+
+    while (current !== null) {
+      const nextNode = current.next;
+      current.next = prev;
+      prev = current;
+      current = nextNode;
+    }
+
+    this.head = prev; // Update head to the new head
+  }
+
   gethead() {
     return this.head;
   }
 
-  // Method to get the tail node
   gettail() {
     return this.tail;
   }
 
-  // Method to return the current length of the linked list
   length() {
-    return this.size;
-  }
-
-  // A method to add a node to the linked list
-  add(data) {
-    const newNode = new Node(data); // Create a new node with the given data
-    if (this.head === null) {
-      this.head = newNode; // The first node is the head
-      this.tail = newNode; // Initially, head and tail are the same
-    } else {
-      this.tail.next = newNode;
-      newNode.prev = this.tail;
-      this.tail = newNode;
-    }
-    this.size++;
-
-    console.log(node_count)
+    return this.node_count; // Return the current node count
   }
 }
+
+
