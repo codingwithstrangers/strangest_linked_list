@@ -5,6 +5,8 @@ export class Linkedlist {
     this.node_count = 0; // Initialize node count
   }
 
+
+
   add(data) {
     const newNode = { data, next: null };
 
@@ -85,6 +87,16 @@ export class Linkedlist {
 
   length() {
     return this.node_count; // Return the current node count
+  }
+
+  toString(){
+    let current = this.head;
+    let result = [];
+    while (current !==null){
+      result.push(current.data);
+      current = current.next;
+    }
+    return result.join('->')
   }
 }
 
